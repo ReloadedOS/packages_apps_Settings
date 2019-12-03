@@ -135,4 +135,8 @@
     <string name="fingerprint_wake_unlock_touch">Listens for events while the screen is off</string>
     <string name="fingerprint_wake_unlock_press">Only listens for events once the screen is on</string>
 
+    <!-- Annoying Notifications -->
+    <string name="notification_sound_vib_screen_on_title">Annoying Notifications</string>
+    <string name="notification_sound_vib_screen_on_summary">Play sound and vibration for notifications when screen is on</string>
+
 </resources>
