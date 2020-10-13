@@ -168,6 +168,13 @@
         android:fragment="com.android.settings.gestures.PreventRingingGestureSettings"
         settings:controller="com.android.settings.gestures.PreventRingingParentPreferenceController"/>
 
+    <org.reloadedos.framework.preference.SecureSettingSwitchPreference
+        android:key="volume_panel_on_left"
+        android:title="@string/volume_panel_on_left_title"
+        android:summary="@string/volume_panel_on_left_summary"
+        android:defaultValue="false"
+        android:order="-75" />
+
     <Preference
         android:key="media_controls_summary"
         android:title="@string/media_controls_title"
