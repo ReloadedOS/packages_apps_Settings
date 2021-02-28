@@ -117,4 +117,10 @@
     <string name="system_black_theme_title">Use Black theme</string>
     <string name="system_black_theme_summary">Force black background colors</string>
 
+    <!-- Incall vibrate options -->
+    <string name="incall_vibration_category">In-call vibration</string>
+    <string name="incall_vibrate_connect_title">Vibrate on connect</string>
+    <string name="incall_vibrate_call_wait_title">Vibrate on call waiting</string>
+    <string name="incall_vibrate_disconnect_title">Vibrate on disconnect</string>
+
 </resources>
