@@ -127,6 +127,7 @@ android_library {
         "org.reloadedos.framework",
         "kotlinx_coroutines_android",
         "kotlinx_coroutines",
+        "faceunlock_framework",
     ],
 
     libs: [
