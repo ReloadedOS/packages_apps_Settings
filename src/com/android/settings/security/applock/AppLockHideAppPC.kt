@@ -55,6 +55,7 @@ class AppLockHideAppPC(
     override fun isChecked() = hideFromLauncher
 
     override fun setChecked(checked: Boolean): Boolean {
+        if (hideFromLauncher == checked) return false
         hideFromLauncher = checked
         coroutineScope.launch(Dispatchers.Default) {
             appLockManager.setPackageHidden(packageName, hideFromLauncher)
