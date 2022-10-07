@@ -48,7 +48,7 @@ import java.util.List;
  */
 public class ImeiInfoPreferenceController extends BasePreferenceController {
 
-    private static final String KEY_PREFERENCE_CATEGORY = "device_detail_category";
+    private static final String KEY_PREFERENCE_CATEGORY = "device_identifiers_category";
     private static final String TAG = "ImeiInfoPreferenceController";
 
     private final boolean mIsMultiSim;
