@@ -8,4 +8,8 @@
     <!-- ReloadedOS versioning -->
     <string name="reloaded_version_title">ReloadedOS version</string>
 
+    <!-- Reloaded Xtras -->
+    <string name="reloaded_xtras_dash_title">Reloaded Xtras</string>
+    <string name="reloaded_xtras_summary">Additional customizations</string>
+
 </resources>

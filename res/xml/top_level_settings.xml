@@ -107,6 +107,14 @@
         settings:controller="com.android.settings.display.TopLevelWallpaperPreferenceController"/>
 
     <com.android.settings.widget.HomepagePreference
+        android:fragment="org.reloadedos.xtras.ReloadedXtras"
+        android:icon="@drawable/ic_settings_reloaded"
+        android:key="top_level_reloaded_xtras"
+        android:order="-65"
+        android:title="@string/reloaded_xtras_dash_title"
+        android:summary="@string/reloaded_xtras_summary"/>
+
+    <com.android.settings.widget.HomepagePreference
         android:fragment="com.android.settings.accessibility.AccessibilitySettings"
         android:icon="@drawable/ic_settings_accessibility"
         android:key="top_level_accessibility"

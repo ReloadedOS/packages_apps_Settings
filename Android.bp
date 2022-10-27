@@ -67,7 +67,16 @@ android_library {
         "btadva_settings_java_defaults",
     ],
 
-    srcs: ["src/**/*.java", "src/**/*.kt"],
+    srcs: ["src/**/*.java", "src/**/*.kt",
+           "ReloadedXtras/src/**/*.java",
+    ],
+
+    aaptflags: ["--extra-packages org.reloadedos.xtras"],
+
+    resource_dirs: [
+        "res",
+        "ReloadedXtras/res",
+    ],
 
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -100,6 +109,7 @@ android_library {
         "lottie",
         "WifiTrackerLib",
         "SettingsLibActivityEmbedding",
+        "kotlin-stdlib",
     ],
 
     libs: [

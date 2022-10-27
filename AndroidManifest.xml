@@ -4537,6 +4537,19 @@
             </intent-filter>
         </activity>
 
+        <!-- ReloadedXtras -->
+        <activity android:name=".Settings$ReloadedXtrasActivity"
+            android:label="@string/reloaded_xtras_dash_title"
+            android:icon="@drawable/ic_settings_reloaded"
+            android:exported="true"
+            android:parentActivityName="com.android.settings">
+            <intent-filter>
+                <action android:name="com.android.settings.action.SETTINGS" />
+            </intent-filter>
+            <meta-data android:name="com.android.settings.FRAGMENT_CLASS"
+                android:value="org.reloadedos.xtras.ReloadedXtras" />
+        </activity>
+
         <!-- This is the longest AndroidManifest.xml ever. -->
     </application>
 </manifest>
