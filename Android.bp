@@ -75,11 +75,14 @@ android_library {
         "btadva_settings_java_defaults",
     ],
 
-    srcs: ["src/**/*.java", "src/**/*.kt"],
+    srcs: ["src/**/*.java", "src/**/*.kt",
+           "ReloadedXtras/src/**/*.java"],
+    aaptflags: ["--extra-packages org.reloadedos.xtras"],
     resource_dirs: [
         "res",
         "res-export", // for external usage
         "res-product",
+        "ReloadedXtras/res",
     ],
     static_libs: [
         "androidx-constraintlayout_constraintlayout",
@@ -122,6 +125,7 @@ android_library {
         "Settings-change-ids",
         "androidx.room_room-runtime",
         "SystemUIUnfoldLib",
+        "kotlin-stdlib",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],

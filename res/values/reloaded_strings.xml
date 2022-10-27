@@ -17,4 +17,8 @@
     <!-- Summary text for screen off UDFPS [CHAR LIMIT=NONE]-->
     <string name="ambient_display_screen_off_udfps_summary">Allows unlocking with the screen off.\nEnabling may cause accidental wake-ups.</string>
 
+    <!-- Reloaded Xtras -->
+    <string name="reloaded_xtras_dash_title">Reloaded Xtras</string>
+    <string name="reloaded_xtras_summary">Additional customizations</string>
+
 </resources>
