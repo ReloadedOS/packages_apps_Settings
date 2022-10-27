@@ -181,6 +181,8 @@ import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints2.SavedAccessPointsWifiSettings2;
 import com.android.settings.wifi.tether.WifiTetherSettings;
 
+import org.reloadedos.xtras.ReloadedXtras;
+
 public class SettingsGateway {
 
     /**
@@ -349,7 +351,8 @@ public class SettingsGateway {
             MobileNetworkSettings.class.getName(),
             AppLocaleDetails.class.getName(),
             TurnScreenOnSettings.class.getName(),
-            TurnScreenOnDetails.class.getName()
+            TurnScreenOnDetails.class.getName(),
+            ReloadedXtras.class.getName()
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -392,5 +395,6 @@ public class SettingsGateway {
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
+            Settings.ReloadedXtrasActivity.class.getName(),
     };
 }
