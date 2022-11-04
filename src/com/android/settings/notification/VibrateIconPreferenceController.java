@@ -35,7 +35,7 @@ public class VibrateIconPreferenceController extends SettingPrefController {
         super(context, parent, lifecycle);
         mHasVibrator = context.getSystemService(Vibrator.class).hasVibrator();
         mPreference = new SettingPref(
-            TYPE_SECURE, KEY_VIBRATE_ICON, Secure.STATUS_BAR_SHOW_VIBRATE_ICON, 0 /*default off*/);
+            TYPE_SECURE, KEY_VIBRATE_ICON, Secure.STATUS_BAR_SHOW_VIBRATE_ICON, 1 /*default on*/);
     }
 
     @Override
