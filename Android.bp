@@ -110,6 +110,7 @@ android_library {
         "WifiTrackerLib",
         "SettingsLibActivityEmbedding",
         "kotlin-stdlib",
+        "org.reloadedos.framework",
     ],
 
     libs: [
