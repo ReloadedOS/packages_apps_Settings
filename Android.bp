@@ -126,6 +126,7 @@ android_library {
         "androidx.room_room-runtime",
         "SystemUIUnfoldLib",
         "kotlin-stdlib",
+        "org.reloadedos.framework",
     ],
 
     plugins: ["androidx.room_room-compiler-plugin"],
