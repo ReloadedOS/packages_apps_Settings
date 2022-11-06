@@ -120,6 +120,7 @@ android_library {
         "SettingsLibActivityEmbedding",
         "Settings-change-ids",
         "kotlin-stdlib",
+        "org.reloadedos.framework",
     ],
 
     libs: [
