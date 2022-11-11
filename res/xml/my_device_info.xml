@@ -40,6 +40,7 @@
             android:title="@string/reloaded_version_title"
             android:summary="@string/summary_placeholder"
             settings:enableCopying="true"
+            settings:fragment="com.android.settings.deviceinfo.ReloadedVersionSettings"
             settings:controller="com.android.settings.deviceinfo.ReloadedVersionPreferenceController"/>
 
         <!-- Android version -->

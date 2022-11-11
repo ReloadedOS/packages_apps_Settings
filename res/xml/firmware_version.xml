@@ -21,12 +21,6 @@
     android:title="@string/firmware_version"
     settings:keywords="@string/keywords_android_version">
 
-    <!-- Reloaded OS logo -->
-    <com.android.settingslib.widget.LayoutPreference
-        android:key="reloaded_logo"
-        android:layout="@layout/reloaded_logo"
-        android:selectable="false"/>
-
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
@@ -84,5 +78,11 @@
         android:selectable="false"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.firmwareversion.SimpleBuildNumberPreferenceController"/>
+
+    <Preference
+        android:key="reloaded_version"
+        android:title="@string/reloaded_version_title"
+        android:summary="@string/tap_to_view"
+        settings:fragment="com.android.settings.deviceinfo.ReloadedVersionSettings"/>
 
 </PreferenceScreen>
