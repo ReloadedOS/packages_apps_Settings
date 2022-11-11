@@ -7,6 +7,12 @@
 
     <!-- ReloadedOS versioning -->
     <string name="reloaded_version_title">ReloadedOS version</string>
+    <string name="reloaded_build_type">Build type</string>
+    <string name="reloaded_build_variant">Build variant</string>
+    <string name="reloaded_clo_revision">CLO revision</string>
+    <string name="reloaded_device">Device</string>
+    <string name="reloaded_device_maintainer">Device maintainer</string>
+    <string name="tap_to_view">Tap to view</string>
 
     <!-- Reloaded Xtras -->
     <string name="reloaded_xtras_dash_title">Reloaded Xtras</string>
