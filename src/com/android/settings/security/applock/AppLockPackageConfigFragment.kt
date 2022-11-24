@@ -26,6 +26,7 @@ import androidx.lifecycle.lifecycleScope
 import com.android.internal.logging.nano.MetricsProto
 
 import com.android.settings.R
+import com.android.settings.dashboard.DashboardFragment
 import com.android.settings.widget.EntityHeaderController
 import com.android.settingslib.applications.ApplicationsState.AppEntry
 import com.android.settingslib.core.AbstractPreferenceController
@@ -71,9 +72,9 @@ class AppLockPackageConfigFragment : DashboardFragment() {
         AppLockHideAppPC(context, packageInfo.packageName, lifecycleScope)
     )
 
-    override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_config_settings
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.RELOADED
 
-    override protected fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.RELOADED
+    override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_config_settings
 
     override protected fun getLogTag() = TAG
 }

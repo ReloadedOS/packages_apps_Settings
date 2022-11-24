@@ -32,6 +32,7 @@ import com.android.internal.logging.nano.MetricsProto
 
 import com.android.settings.R
 import com.android.settings.core.SubSettingLauncher
+import com.android.settings.dashboard.DashboardFragment
 import com.android.settingslib.PrimarySwitchPreference
 import com.android.settingslib.widget.TwoTargetPreference.ICON_SIZE_SMALL
 
@@ -134,9 +135,9 @@ class AppLockPackageListFragment : DashboardFragment() {
         }
     }
 
-    override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_list_settings
+    override fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.RELOADED
 
-    override protected fun getMetricsCategory(): Int = MetricsProto.MetricsEvent.RELOADED
+    override protected fun getPreferenceScreenResId() = R.xml.app_lock_package_list_settings
 
     override protected fun getLogTag() = TAG
 }
