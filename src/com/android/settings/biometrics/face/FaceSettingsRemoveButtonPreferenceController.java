@@ -25,6 +25,8 @@ import android.hardware.face.Face;
 import android.hardware.face.FaceManager;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.preference.Preference;
@@ -38,16 +40,17 @@ import com.android.settings.overlay.FeatureFactory;
 import com.android.settingslib.core.instrumentation.MetricsFeatureProvider;
 import com.android.settingslib.widget.LayoutPreference;
 
-import java.util.List;
+import com.google.android.setupdesign.util.ButtonStyler;
+import com.google.android.setupdesign.util.PartnerStyleHelper;
 
-import com.android.settings.custom.biometrics.FaceUtils;
+import java.util.List;
 
 /**
  * Controller for the remove button. This assumes that there is only a single face enrolled. The UI
  * will likely change if multiple enrollments are allowed/supported.
  */
-public class FaceSettingsRemoveButtonPreferenceController extends BasePreferenceController implements
-        Preference.OnPreferenceClickListener {
+public class FaceSettingsRemoveButtonPreferenceController extends BasePreferenceController
+        implements View.OnClickListener {
 
     private static final String TAG = "FaceSettings/Remove";
     static final String KEY = "security_settings_face_delete_faces_container";
@@ -67,7 +70,7 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
             AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
             builder.setTitle(R.string.security_settings_face_settings_remove_dialog_title)
-                    .setMessage(mIsConvenience && !FaceUtils.isFaceUnlockSupported()
+                    .setMessage(mIsConvenience
                             ? R.string.security_settings_face_settings_remove_dialog_details_convenience
                             : R.string.security_settings_face_settings_remove_dialog_details)
                     .setPositiveButton(R.string.delete, mOnClickListener)
@@ -91,6 +94,7 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
     }
 
     private Preference mPreference;
+    private Button mButton;
     private Listener mListener;
     private SettingsActivity mActivity;
     private int mUserId;
@@ -114,7 +118,7 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
             if (remaining == 0) {
                 final List<Face> faces = mFaceManager.getEnrolledFaces(mUserId);
                 if (!faces.isEmpty()) {
-                    mPreference.setEnabled(true);
+                    mButton.setEnabled(true);
                 } else {
                     mRemoving = false;
                     mListener.onRemoved();
@@ -130,7 +134,7 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
         @Override
         public void onClick(DialogInterface dialog, int which) {
             if (which == DialogInterface.BUTTON_POSITIVE) {
-                mPreference.setEnabled(false);
+                mButton.setEnabled(false);
                 final List<Face> faces = mFaceManager.getEnrolledFaces(mUserId);
                 if (faces.isEmpty()) {
                     Log.e(TAG, "No faces");
@@ -143,7 +147,7 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
                 // Remove the first/only face
                 mFaceUpdater.remove(faces.get(0), mUserId, mRemovalCallback);
             } else {
-                mPreference.setEnabled(true);
+                mButton.setEnabled(true);
                 mRemoving = false;
             }
         }
@@ -168,13 +172,21 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
     @Override
     public void updateState(Preference preference) {
         super.updateState(preference);
+
         mPreference = preference;
-        mPreference.setOnPreferenceClickListener(this);
+        mButton = ((LayoutPreference) preference)
+                .findViewById(R.id.security_settings_face_settings_remove_button);
+
+        if (PartnerStyleHelper.shouldApplyPartnerResource(mButton)) {
+            ButtonStyler.applyPartnerCustomizationPrimaryButtonStyle(mContext, mButton);
+        }
+
+        mButton.setOnClickListener(this);
 
         if (!FaceSettings.isFaceHardwareDetected(mContext)) {
-            mPreference.setEnabled(false);
+            mButton.setEnabled(false);
         } else {
-            mPreference.setEnabled(!mRemoving);
+            mButton.setEnabled(!mRemoving);
         }
     }
 
@@ -189,13 +201,15 @@ public class FaceSettingsRemoveButtonPreferenceController extends BasePreference
     }
 
     @Override
-    public boolean onPreferenceClick(Preference preference) {
-        mRemoving = true;
-        ConfirmRemoveDialog dialog = new ConfirmRemoveDialog();
-        dialog.setOnClickListener(mOnClickListener);
-        dialog.setIsConvenience(BiometricUtils.isConvenience(mFaceManager));
-        dialog.show(mActivity.getSupportFragmentManager(), ConfirmRemoveDialog.class.getName());
-        return true;
+    public void onClick(View v) {
+        if (v == mButton) {
+            mMetricsFeatureProvider.logClickedPreference(mPreference, getMetricsCategory());
+            mRemoving = true;
+            ConfirmRemoveDialog dialog = new ConfirmRemoveDialog();
+            dialog.setOnClickListener(mOnClickListener);
+            dialog.setIsConvenience(BiometricUtils.isConvenience(mFaceManager));
+            dialog.show(mActivity.getSupportFragmentManager(), ConfirmRemoveDialog.class.getName());
+        }
     }
 
     public void setListener(Listener listener) {

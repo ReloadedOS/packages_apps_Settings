@@ -30,8 +30,6 @@ import com.android.settings.Utils;
 
 import java.util.List;
 
-import com.android.settings.custom.biometrics.FaceUtils;
-
 /**
  * Preference controller giving the user an option to always require confirmation.
  */
@@ -81,9 +79,6 @@ public class FaceSettingsConfirmPreferenceController extends FaceSettingsPrefere
 
     @Override
     public int getAvailabilityStatus() {
-        if (FaceUtils.isFaceUnlockSupported()){
-            return UNSUPPORTED_ON_DEVICE;
-        }
         List<FaceSensorProperties> properties = mFaceManager.getSensorProperties();
         // If a sensor is convenience, it is possible that it becomes weak or strong with
         // an update. For this reason, the sensor is conditionally unavailable.
