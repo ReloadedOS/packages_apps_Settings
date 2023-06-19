@@ -156,4 +156,8 @@
         Prevent this application from showing up in launcher. Requires a launcher restart for changes to take effect.
     </string>
 
+    <!-- Separate ring & notification toggle -->
+    <string name="volume_separate_notification_title">Separated Ring and Notification</string>
+    <string name="volume_separate_notification_summary">Allow controlling each stream individually</string>
+
 </resources>
